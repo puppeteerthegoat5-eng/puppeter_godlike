@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Panel - Stress Test Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Bot Panel 🤖</h1>
+            <p>Stress Test & Traffic Simulation Tool</p>
+        </header>
+
+        <main>
+            <div class="control-panel">
+                <div class="form-group">
+                    <label for="urls">Target URLs (One per line)</label>
+                    <textarea id="urls" placeholder="https://example.com&#10;https://example.org" required
+                        style="height: 100px;"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="botCount">Number of Bots</label>
+                    <input type="number" id="botCount" value="1" min="1" max="20">
+                    <small>Warning: High usage may lag your PC.</small>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="headless" checked style="width: auto;"> Run Headless (Hidden)
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="proxies">Proxies (Optional)</label>
+                    <textarea id="proxies" placeholder="IP:PORT (One per line)"></textarea>
+                </div>
+
+                <div class="actions">
+                    <button id="startBtn" class="btn primary">Start Bots</button>
+                    <button id="stopBtn" class="btn danger" disabled>Stop All</button>
+                </div>
+
+                <div class="status">
+                    Active Bots: <span id="activeCount">0</span>
+                </div>
+            </div>
+
+            <div class="log-panel">
+                <h3>Live Logs</h3>
+                <div id="logs" class="log-container">
+                    <div class="log-entry">Waiting for command...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
